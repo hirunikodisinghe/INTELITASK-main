@@ -1,0 +1,37 @@
+.delete-task-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .delete-task-container button{
+    padding: 10px;
+    background-color: #f44336; /* Red color for delete action */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+  }

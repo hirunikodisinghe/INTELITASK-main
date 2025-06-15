@@ -1,0 +1,255 @@
+/* General page styling */
+.task-list-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(255, 221, 225, 0.4), rgba(238, 156, 167, 0.4)), url('https://i.pinimg.com/736x/33/1c/e1/331ce163dad05d22ed707367e738f7ec.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  border-top: 5px solid #ffffff; /* White line at the top */
+  border-bottom: 5px solid #ffffff; /* White line at the bottom */
+}
+
+.task-list-page::before {
+  top: 10px; /* Start of page */
+}
+
+.task-list-page::after {
+  bottom: 10px; /* End of page */
+}
+
+/* Container styling */
+.task-list-container {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white for contrast */
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  position: relative; /* For section lines */
+}
+
+/* White lines for sections within container */
+.task-list-container::before,
+.task-list-container::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.task-list-container::before {
+  top: 5px; /* Start of container */
+}
+
+.task-list-container::after {
+  bottom: 5px; /* End of container */
+}
+
+/* Heading with underline */
+.task-list-container h2 {
+  text-align: center;
+  color: #ff6699; /* Pink shade */
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(255, 102, 153, 0.3); /* Subtle pink shadow */
+  position: relative;
+}
+
+.task-list-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: #ff6699; /* Pink underline */
+}
+
+/* PDF button - centered and structured */
+.pdf-button {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #ff6699, #ff3385); /* Gradient pink button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 200px; /* Fixed width for structured look */
+  text-align: center;
+}
+
+.pdf-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 51, 133, 0.4);
+}
+
+/* Task cards container */
+.task-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Slightly smaller cards */
+  gap: 15px;
+}
+
+/* Individual task card */
+.task-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 15px;
+  border: 1px solid #ff99cc; /* Pink border */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #ff6699, #ff99cc); /* Pink top bar */
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(255, 102, 153, 0.2);
+}
+
+.task-card h3 {
+  color: #ff6699;
+  font-size: 17px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.task-card p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+}
+
+.task-card p strong {
+  color: #ff3385;
+  font-weight: 600;
+}
+
+/* Task actions - centered and structured */
+.task-actions {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.task-actions button {
+  padding: 7px 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 80px; /* Fixed width for uniformity */
+  text-align: center;
+}
+
+.task-actions button:hover {
+  transform: scale(1.05);
+}
+
+.update-button {
+  background: linear-gradient(45deg, #4CAF50, #66bb6a); /* Green gradient */
+}
+
+.update-button:hover {
+  background: linear-gradient(45deg, #45a049, #5daf63);
+}
+
+.reminder-button {
+  background: linear-gradient(45deg, #008CBA, #4fc3f7); /* Blue gradient */
+}
+
+.reminder-button:hover {
+  background: linear-gradient(45deg, #007bb5, #42b6f0);
+}
+
+.delete-button {
+  background: linear-gradient(45deg, #ff3333, #ff6666); /* Red gradient */
+}
+
+.delete-button:hover {
+  background: linear-gradient(45deg, #e60000, #ff4d4d);
+}
+
+/* Loading and error messages */
+.loading-text {
+  text-align: center;
+  color: #ff6699;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.error-message {
+  text-align: center;
+  color: #ff3333;
+  font-size: 14px;
+  margin-bottom: 15px;
+  background: rgba(255, 51, 51, 0.1);
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.no-tasks {
+  text-align: center;
+  color: #c03362;
+  font-size: 16px;
+  font-style: italic;
+  padding: 20px;
+  background: rgba(255, 153, 204, 0.1);
+  border-radius: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .task-list-container {
+    padding: 15px;
+  }
+
+  .task-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .task-card {
+    padding: 12px;
+  }
+
+  .task-actions {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    gap: 6px;
+  }
+
+  .task-actions button {
+    width: 100%; /* Full width on small screens */
+  }
+
+  .pdf-button {
+    padding: 0px 15px;
+    font-size: 14px;
+    width: 150px; /* Smaller fixed width */
+  }
+}

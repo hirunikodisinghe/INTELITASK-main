@@ -1,0 +1,273 @@
+/* General App styling */
+.App {
+  text-align: center;
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+/* Header styling */
+.App-header {
+  background: linear-gradient(90deg, #ff6699, #ff99cc);
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-btn {
+  background: #4caf50; /* Green for profile */
+  color: white;
+}
+
+.profile-btn:hover {
+  background: #45a049;
+}
+
+.reminders-btn {
+  background: #2196f3; /* Blue for reminders */
+  color: white;
+}
+
+.reminders-btn:hover {
+  background: #1e87db;
+}
+
+.feedback-btn {
+  background: #ff9800; /* Orange for feedback */
+  color: white;
+}
+
+.feedback-btn:hover {
+  background: #e68a00;
+}
+
+.logout-btn {
+  background: #f44336; /* Red for logout */
+  color: white;
+}
+
+.logout-btn:hover {
+  background: #d32f2f;
+}
+
+/* Splash screen styling */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff6699, #ff99cc, #ff6699);
+  background-size: 200% 200%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: gradientShift 3s ease infinite, fadeIn 0.5s ease forwards, fadeOut 0.5s ease 1.5s forwards;
+}
+
+/* Animated title styling */
+.splash-title {
+  color: #fff;
+  font-size: 2.5rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  animation: titleGlow 2s ease forwards;
+}
+
+/* Task checklist animation */
+.task-checklist {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.checklist-icon {
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotateChecklist 2s linear infinite, bounce 0.5s ease infinite alternate;
+}
+
+/* Add checkmark pseudo-element */
+.checklist-icon::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  border-left: 4px solid #4caf50;
+  border-bottom: 4px solid #4caf50;
+  transform: rotate(-45deg);
+  top: 22px;
+  left: 20px;
+  animation: checkmarkPulse 1.5s infinite;
+}
+
+/* Orbiting dots */
+.orbit-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #86e9ed;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+}
+
+.orbit-dot-1 {
+  animation: orbit 1.5s linear infinite;
+  transform-origin: 50px 50px;
+}
+
+.orbit-dot-2 {
+  animation: orbit 1.5s linear infinite 0.5s;
+  transform-origin: 50px 50px;
+}
+
+.orbit-dot-3 {
+  animation: orbit 1.5s linear infinite 1s;
+  transform-origin: 50px 50px;
+}
+
+/* Splash loading text */
+.splash-loading-text {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 30px;
+  font-family: 'Poppins', sans-serif;
+  animation: textBounce 0.8s ease infinite;
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes titleGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+}
+
+@keyframes rotateChecklist {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes checkmarkPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(30px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(30px) rotate(-360deg);
+  }
+}
+
+@keyframes textBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Main content styling */
+main {
+  padding: 20px;
+  transition: opacity 0.3s ease;
+}

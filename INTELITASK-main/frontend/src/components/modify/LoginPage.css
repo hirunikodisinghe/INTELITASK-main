@@ -1,0 +1,254 @@
+/* Full-page styling with gradient background */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #c2a2b5, #fe86b0); /* Subtle gray-to-blue gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced spider web effect with multiple layers */
+.login-page::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(220, 10, 108, 0.15) 5%, transparent 40%);
+  transform: translate(-50%, -50%);
+  animation: spiderGlow 5s infinite ease-in-out;
+  z-index: 0;
+}
+
+.login-page::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(33, 150, 243, 0.1) 10%, transparent 50%);
+  transform: translate(-50%, -50%);
+  animation: spiderGlow 7s infinite ease-in-out reverse;
+  z-index: 0;
+}
+
+/* Login container with enhanced lighting and glassmorphism */
+.login-container {
+  max-width: 420px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  border-radius: 20px;
+  padding: 50px 40px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2),
+              inset 0 0 15px rgba(255, 255, 255, 0.9); /* Stronger inner lighting */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px); /* Glassmorphism effect */
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25),
+              inset 0 0 20px rgba(255, 255, 255, 1);
+}
+
+/* Heading with gradient text */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #f32121, #ff6699);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form group with floating labels */
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #2196f3;
+  background: #fff;
+  padding: 0 5px;
+}
+
+/* Input styling with glow */
+input {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #333;
+  background: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #2196f3; /* Blue accent */
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.4);
+  outline: none;
+}
+
+input::placeholder {
+  color: transparent; /* Hidden until focused */
+}
+
+/* Error message with animation */
+.error-message {
+  text-align: center;
+  color: #ff3333;
+  font-size: 14px;
+  margin-bottom: 25px;
+  padding: 10px;
+  background: #ffe6e6;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  animation: shake 0.5s ease;
+}
+
+/* Login button with enhanced lighting and ripple effect */
+.login-btn {
+  width: 100%;
+  padding: 16px;
+  background: #2196f3; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.login-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.login-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.login-btn:hover {
+  background: #1e87db;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.5);
+}
+
+.login-btn:disabled {
+  background: #b0bec5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.login-btn:disabled::before {
+  display: none;
+}
+
+/* Additional options with 3D effect */
+.additional-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.create-account-btn,
+.admin-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.create-account-btn {
+  background: #4caf50; /* Green */
+}
+
+.create-account-btn:hover {
+  background: #45a049;
+  transform: translateY(-3px) rotateX(10deg);
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+.admin-btn {
+  background: #ff9800; /* Orange */
+}
+
+.admin-btn:hover {
+  background: #e68a00;
+  transform: translateY(-3px) rotateX(10deg);
+  box-shadow: 0 6px 15px rgba(255, 152, 0, 0.4);
+}
+
+/* Animations */
+@keyframes spiderGlow {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
